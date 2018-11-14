@@ -1,0 +1,30 @@
+
+void QuickSort(List & r,int L,int P)//将r[L]至r[P]进行快速排序
+{
+    i = L;
+    j = P;
+    x = r[i];   //置初值
+    do
+    {
+        while((r[j].key >= x.key) && (j > i))
+            j--;//从表尾的一端开始比较
+        if(i < j)
+        {
+            r[i] = r[j];//将r[j],key < x,key的记录移至i所指的位置
+            i++;
+            while((r[i].key <= x.key) &&(i < j))
+                i++;//再从表的始端进行比较
+            if(i < j)
+            {
+                r[j] = r[i];
+                j--;
+            }
+        }
+    }
+    while(i != j);
+    r[i] = x; i++; j--;//一趟快排结束，将x移至正确位置
+    if(L < j)
+        QuickSort(r,L,j);//反复排序前一部分
+    if(i < P)
+        QuickSort(r,i,P);//反复排序后一部分
+}
