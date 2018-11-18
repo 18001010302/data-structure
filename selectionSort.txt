@@ -1,0 +1,29 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+void selectionSort(int a[],int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        int min = i;//第一个元素下标给min
+        for (int j = i + 1; j < n; j++)//从数组的第二个元素开始遍历
+            if (a[j] < a[min])//发现有元素比a[min] 的数小
+                min = j;//将j的下标给min
+            swap(a[i],a[min]);//交换两个数的值
+            cout << a[i] << " ";
+    }
+}
+int main(int argc, char const *argv[])
+{
+	int n;
+	cin >> n;
+	int a[n];
+	for (int i = 0; i < n; i++)
+	{
+		
+		cin >> a[i];
+	}
+	selectionSort(a,n);
+    return 0;
+}
